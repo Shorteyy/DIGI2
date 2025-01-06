@@ -65,6 +65,33 @@ view: order_items {
     value_format: "€#,##0.00"
   }
 
+  parameter: price_parameter {
+    default_value: "SUM"
+    type: unquoted
+    allowed_value: {
+      label: "sum_price"
+      value: "SUM"
+    }
+    allowed_value: {
+      label: "max_price"
+      value: "MAX"
+    }
+    allowed_value: {
+      label: "min_price"
+      value: "MIN"
+    }
+    allowed_value: {
+      label: "avg_price"
+      value: "AVG"
+    }
+  }
+  measure: parametized_sale_price {
+    type: number
+    label_from_parameter: price_parameter
+    sql:{% parameter price_parameter %}(${sale_price}) ;;
+  }
+
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
