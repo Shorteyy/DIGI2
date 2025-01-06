@@ -11,6 +11,7 @@ datagroup: digi2_default_datagroup {
 persist_with: digi2_default_datagroup
 
 explore: users {}
+explore: distribution_centers {}
 
 explore: inventory_items {
   join: products {

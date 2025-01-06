@@ -59,20 +59,25 @@ view: order_items {
     type: count
     drill_fields: [detail*]
   }
+  measure: sum_sale_price {
+    type: sum
+    sql: ${sale_price} ;;
+    value_format: "€#,##0.00"
+  }
 
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	users.last_name,
-	users.id,
-	users.first_name,
-	inventory_items.id,
-	inventory_items.product_name,
-	products.name,
-	products.id,
-	orders.order_id
-	]
+  id,
+  users.last_name,
+  users.id,
+  users.first_name,
+  inventory_items.id,
+  inventory_items.product_name,
+  products.name,
+  products.id,
+  orders.order_id
+  ]
   }
 
 }
