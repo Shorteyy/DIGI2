@@ -65,22 +65,7 @@ view: order_items {
     value_format: "€#,##0.00"
   }
 
-  parameter: mesure_selector {
-    type: string
-    allowed_value: {
-      label: "Count"
-      value: "Count"
-    }
-    allowed_value: {
-      label: "Sum sale price"
-      value: "Sum"
-    }
-  }
-  measure: dyn_kpi {
-    type: number
-    sql: CASE WHEN {%parameter mesure_selector%}='count'THEN
-    ${count} ELSE ${sale_price} END;;
-  }
+
   parameter: price_parameter {
     default_value: "SUM"
     type: unquoted
