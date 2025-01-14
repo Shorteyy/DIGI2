@@ -36,6 +36,10 @@ explore: events {
 }
 
 explore: order_items {
+  access_filter: {
+    field: users.country
+    user_attribute: retail_country
+  }
   join: users {
     type: left_outer
     sql_on: ${order_items.user_id} = ${users.id} ;;
